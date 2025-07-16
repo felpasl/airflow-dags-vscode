@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Airflow DAG (sample_dag)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/.venv/bin/airflow",
+            "args": [
+                "dags",
+                "test",
+                "sample_hello_dag"
+            ],
+            "env": {
+                "AIRFLOW_HOME": "/root/airflow"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": false
+        }
+    ]
+}

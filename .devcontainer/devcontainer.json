@@ -1,0 +1,48 @@
+{
+    "name": "Apache Airflow - postgres",
+    "dockerComposeFile": [
+        "docker-compose.yaml",
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "ms-python.autopep8",
+                "python.formatting.provider": "autopep8",
+                "python.languageServer": "Pylance",
+                "python.analysis.typeCheckingMode": "basic",
+                "python.autoComplete.addBrackets": true,
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": false,
+                "python.linting.flake8Enabled": true,
+                "python.linting.mypyEnabled": true,
+                "python.linting.pep8Enabled": false
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy",
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-pg",
+                "rogalmic.bash-debug",
+                "ms-azuretools.vscode-docker",
+                "dbaeumer.vscode-eslint",
+            ]
+        }
+    },
+    "service": "airflow",
+    "forwardPorts": [8080,5555,5432,6379,8123,9000],
+    "workspaceFolder": "/opt/airflow",
+    // for users who use non-standard git config patterns
+    // https://github.com/microsoft/vscode-remote-release/issues/2084#issuecomment-989756268
+    "initializeCommand": "cd \"${localWorkspaceFolder}\" && git config --local user.email \"$(git config user.email)\" && git config --local user.name \"$(git config user.name)\"",
+    "overrideCommand": true,
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/opt/airflow,type=bind,consistency=cached",
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/common-utils:2": {}
+    },
+    "postStartCommand": "bash ${containerWorkspaceFolder}/.devcontainer/startup.sh",
+}
