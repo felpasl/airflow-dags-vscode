@@ -19,7 +19,7 @@ services:
   airflow:
     stdin_open: true # docker run -i
     tty: true # docker run -t
-    image: ghcr.io/apache/airflow/main/ci/python3.12
+    image: mcr.microsoft.com/devcontainers/python:3.12
     env_file: .env
     ports:
       - "8080:8080"
@@ -51,7 +51,7 @@ services:
       # The fernet key is used to encrypt sensitive data in Airflow.
       # It is recommended to generate a new key for production use.
       #AIRFLOW__CORE__FERNET_KEY=$(openssl rand -base64 32)
-      - AIRFLOW__CORE__FERNET_KEY=5bSx0d3mFiOOzOIYxQyN8ybS2m+k10m6lce1ltH97dw=
+      - AIRFLOW__CORE__FERNET_KEY=mj_WEmNm9CDxXit12BDWeZKKCtRzU9_8nXBCCIjr70Q=
     depends_on:
       postgres:
         condition: service_healthy
