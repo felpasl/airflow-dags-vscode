@@ -23,6 +23,15 @@ echo "Virtual environment activated and requirements installed."
 echo "Running Airflow database migrations..."
 airflow db migrate
 
-
 echo "Airflow database initialized successfully."
+
+echo "Create Postgres conection"
+
+airflow connections add 'postgres_default' \
+  --conn-type 'postgres' \
+  --conn-host 'postgres' \
+  --conn-login 'postgres' \
+  --conn-password 'postgres' \
+  --conn-schema 'airflow' \
+  --conn-port '5432'
 
