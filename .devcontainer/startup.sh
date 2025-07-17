@@ -34,4 +34,5 @@ airflow connections add 'postgres_default' \
   --conn-password 'postgres' \
   --conn-schema 'airflow' \
   --conn-port '5432'
+  
 

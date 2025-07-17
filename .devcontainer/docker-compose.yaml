@@ -40,13 +40,18 @@ services:
       "
     environment:
       - BACKEND=postgres
-      - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow
+      - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres/airflow
       - AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://postgres:postgres@postgres/airflow
       - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=false
       - AIRFLOW__CORE__LOAD_EXAMPLES=false
       - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=true
       - AIRFLOW__CORE__ENABLE_XCOM_PICKLING=true
+      #JUST FOR TESTING, DO NOT USE IN PRODUCTION
+      # The fernet key is used to encrypt sensitive data in Airflow.
+      # It is recommended to generate a new key for production use.
+      #AIRFLOW__CORE__FERNET_KEY=$(openssl rand -base64 32)
+      - AIRFLOW__CORE__FERNET_KEY=5bSx0d3mFiOOzOIYxQyN8ybS2m+k10m6lce1ltH97dw=
     depends_on:
       postgres:
         condition: service_healthy
