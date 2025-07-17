@@ -13,10 +13,8 @@
                 "python.analysis.typeCheckingMode": "basic",
                 "python.autoComplete.addBrackets": true,
                 "python.linting.enabled": true,
-                "python.linting.pylintEnabled": false,
                 "python.linting.flake8Enabled": true,
-                "python.linting.mypyEnabled": true,
-                "python.linting.pep8Enabled": false
+                "python.linting.mypyEnabled": true
             },
             "extensions": [
                 "ms-python.python",
@@ -25,8 +23,7 @@
                 "mtxr.sqltools",
                 "mtxr.sqltools-driver-pg",
                 "rogalmic.bash-debug",
-                "ms-azuretools.vscode-docker",
-                "dbaeumer.vscode-eslint",
+                "ms-azuretools.vscode-docker"
             ]
         }
     },
@@ -38,11 +35,10 @@
     "initializeCommand": "cd \"${localWorkspaceFolder}\" && git config --local user.email \"$(git config user.email)\" && git config --local user.name \"$(git config user.name)\"",
     "overrideCommand": true,
     "mounts": [
-        "source=${localWorkspaceFolder},target=/opt/airflow,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder},target=/opt/airflow,type=bind,consistency=cached"
     ],
     "features": {
-        "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers/features/common-utils:2": {}
     },
-    "postStartCommand": "bash ${containerWorkspaceFolder}/.devcontainer/startup.sh",
+    "postStartCommand": "bash ${containerWorkspaceFolder}/.devcontainer/startup.sh"
 }
