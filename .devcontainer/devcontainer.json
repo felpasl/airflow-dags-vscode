@@ -36,8 +36,5 @@
     "mounts": [
         "source=${localWorkspaceFolder},target=/opt/airflow,type=bind,consistency=cached"
     ],
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {}
-    },
     "postStartCommand": "bash ${containerWorkspaceFolder}/.devcontainer/startup.sh"
 }
