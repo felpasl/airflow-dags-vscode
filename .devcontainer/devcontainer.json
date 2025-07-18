@@ -14,20 +14,20 @@
                 "python.autoComplete.addBrackets": true,
                 "python.linting.enabled": true,
                 "python.linting.flake8Enabled": true,
-                "python.linting.mypyEnabled": true
+                "python.linting.mypyEnabled": true,
+                "python.defaultInterpreterPath": "/opt/airflow/.venv/bin/python"
             },
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "ms-python.debugpy",
-                "mtxr.sqltools",
-                "mtxr.sqltools-driver-pg",
                 "rogalmic.bash-debug",
                 "ms-azuretools.vscode-docker"
             ]
         }
     },
     "service": "airflow",
+    "remoteUser": "root",
     "forwardPorts": [8080,5555,5432,6379,8123,9000],
     "workspaceFolder": "/opt/airflow",
     // for users who use non-standard git config patterns

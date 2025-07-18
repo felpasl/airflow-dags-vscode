@@ -46,6 +46,7 @@ services:
       - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=false
       - AIRFLOW__CORE__LOAD_EXAMPLES=false
       - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=true
+      - AIRFLOW__METRICS__TIMER_UNIT_CONSISTENCY=true
       - AIRFLOW__CORE__ENABLE_XCOM_PICKLING=true
       #JUST FOR TESTING, DO NOT USE IN PRODUCTION
       # The fernet key is used to encrypt sensitive data in Airflow.
